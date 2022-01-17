@@ -11,6 +11,7 @@
   --white2: rgb(254, 254, 254);
   --dark-blue1: rgb(30, 42, 71);
   --dark-blue2: rgb(20, 29, 47);
+  --red: rgb(247, 70, 70);
 }
 
 /* CSS Resets */
@@ -33,4 +34,10 @@ body {
 input,
 button {
   font: inherit;
+}
+
+.error {
+  color: var(--red);
+  font-weight: 800;
+  display: none;
 }
