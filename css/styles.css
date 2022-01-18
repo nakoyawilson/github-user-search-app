@@ -95,6 +95,7 @@ a:hover {
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
+  letter-spacing: 2.5px;
 }
 
 .toggle-button:hover {
@@ -240,6 +241,7 @@ a:hover {
 
 .bio-container {
   padding: 1.25rem 0 2rem;
+  line-height: 1.67;
 }
 
 .stats-container {
