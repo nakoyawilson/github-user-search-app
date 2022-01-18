@@ -45,6 +45,8 @@ const searchForUser = async (usernameInput) => {
     const month = months[unformattedDate.getMonth()];
     const year = unformattedDate.getFullYear();
 
+    console.log(typeof response.data.blog);
+
     const url =
       response.data.blog.length <= 19
         ? response.data.blog
@@ -71,11 +73,13 @@ const searchForUser = async (usernameInput) => {
     locationIcon.style.opacity = response.data.location !== null ? "1" : "0.75";
 
     website.innerHTML =
-      response.data.blog !== null
+      response.data.blog !== null && response.data.blog !== ""
         ? `<a href="${response.data.blog}">${url}</a>`
         : "Not Available";
-    website.style.opacity = response.data.blog !== null ? "1" : "0.75";
-    websiteIcon.style.opacity = response.data.blog !== null ? "1" : "0.75";
+    website.style.opacity =
+      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.75";
+    websiteIcon.style.opacity =
+      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.75";
 
     twitter.innerHTML =
       response.data.twitter_username !== null
@@ -101,7 +105,7 @@ searchForUser("octocat");
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const searchInput = searchBar.value;
+  const searchInput = searchBar.value.trim();
   searchForUser(searchInput);
 });
 
