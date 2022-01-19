@@ -1,5 +1,6 @@
 const searchForm = document.querySelector("#search-form"),
   searchBar = document.querySelector("#search-bar"),
+  searchInput = document.querySelector(".search-input"),
   errorMessage = document.querySelector("#error-message"),
   avatar = document.querySelector("#avatar-image"),
   fullname = document.querySelector("#fullname"),
@@ -96,8 +97,12 @@ const searchForUser = async (usernameInput) => {
     companyIcon.style.opacity = response.data.company !== null ? "1" : "0.75";
 
     errorMessage.style.opacity = "0";
+    searchInput.removeAttribute("aria-invalid");
+    searchInput.removeAttribute("aria-describedBy");
   } catch (err) {
     errorMessage.style.opacity = "1";
+    searchInput.setAttribute("aria-invalid", "true");
+    searchInput.setAttribute("aria-describedBy", "error-message");
   }
 };
 
