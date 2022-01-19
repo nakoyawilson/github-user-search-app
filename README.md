@@ -73,6 +73,7 @@ While working through this project I learned about the prefers-color-scheme CSS 
 - [Labeling Controls](https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements) - This note was helpful for implementing hiding the input label for visual users.
 - [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 - [How do I detect dark mode using JavaScript? - Stack Overflow](https://stackoverflow.com/questions/56393880/how-do-i-detect-dark-mode-using-javascript)
+- [Rendering special characters in placeholder of input text box - Stack Overflow](https://stackoverflow.com/questions/38966750/rendering-special-characters-in-placeholder-of-input-text-box)
 
 ## Author
 
