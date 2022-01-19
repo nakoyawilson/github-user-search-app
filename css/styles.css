@@ -632,6 +632,7 @@ body.dark-mode {
 .dark-mode .search,
 .dark-mode .card {
   background-color: var(--dark-blue1);
+  box-shadow: none;
 }
 
 .dark-mode .search-input {
