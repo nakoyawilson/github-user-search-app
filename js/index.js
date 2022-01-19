@@ -85,31 +85,31 @@ const searchForUser = async (usernameInput) => {
       response.data.location !== null
         ? response.data.location
         : "Not Available";
-    userLocation.style.opacity = response.data.location !== null ? "1" : "0.75";
-    locationIcon.style.opacity = response.data.location !== null ? "1" : "0.75";
+    userLocation.style.opacity = response.data.location !== null ? "1" : "0.5";
+    locationIcon.style.opacity = response.data.location !== null ? "1" : "0.5";
 
     website.innerHTML =
       response.data.blog !== null && response.data.blog !== ""
         ? `<a href="${response.data.blog}">${url}</a>`
         : "Not Available";
     website.style.opacity =
-      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.75";
+      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.5";
     websiteIcon.style.opacity =
-      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.75";
+      response.data.blog !== null && response.data.blog !== "" ? "1" : "0.5";
 
     twitter.innerHTML =
       response.data.twitter_username !== null
         ? `<a href="https://twitter.com/${response.data.twitter_username}">@${response.data.twitter_username}</a>`
         : "Not Available";
     twitter.style.opacity =
-      response.data.twitter_username !== null ? "1" : "0.75";
+      response.data.twitter_username !== null ? "1" : "0.5";
     twitterIcon.style.opacity =
-      response.data.twitter_username !== null ? "1" : "0.75";
+      response.data.twitter_username !== null ? "1" : "0.5";
 
     company.textContent =
       response.data.company !== null ? response.data.company : "Not Available";
-    company.style.opacity = response.data.company !== null ? "1" : "0.75";
-    companyIcon.style.opacity = response.data.company !== null ? "1" : "0.75";
+    company.style.opacity = response.data.company !== null ? "1" : "0.5";
+    companyIcon.style.opacity = response.data.company !== null ? "1" : "0.5";
 
     errorMessage.style.opacity = "0";
     searchInput.removeAttribute("aria-invalid");
