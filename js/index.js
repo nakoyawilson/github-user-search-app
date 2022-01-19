@@ -18,7 +18,9 @@ const searchForm = document.querySelector("#search-form"),
   company = document.querySelector("#company"),
   companyIcon = document.querySelector(".company-icon"),
   dark = document.querySelector(".dark"),
-  light = document.querySelector(".light");
+  light = document.querySelector(".light"),
+  toggleButton = document.querySelector(".toggle-button"),
+  body = document.querySelector("body");
 
 const months = [
   "Jan",
@@ -44,8 +46,6 @@ const searchForUser = async (usernameInput) => {
     const day = unformattedDate.getDate();
     const month = months[unformattedDate.getMonth()];
     const year = unformattedDate.getFullYear();
-
-    console.log(typeof response.data.blog);
 
     const url =
       response.data.blog.length <= 19
@@ -119,3 +119,25 @@ if (
   light.style.display = "none";
   dark.style.display = "flex";
 }
+
+toggleButton.addEventListener("click", () => {
+  if (
+    (window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+    body.classList.contains("dark-mode")
+  ) {
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    light.style.display = "none";
+    dark.style.display = "flex";
+  } else if (
+    (window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: light)").matches) ||
+    body.classList.contains("light-mode")
+  ) {
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    light.style.display = "flex";
+    dark.style.display = "none";
+  }
+});
