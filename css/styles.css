@@ -81,7 +81,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8.75rem;
+  margin-top: 9rem;
   margin-bottom: 2.25rem;
 }
 
@@ -119,10 +119,6 @@ a:hover {
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-.light {
-  display: none;
 }
 
 /* Main Section */

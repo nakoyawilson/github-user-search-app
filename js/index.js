@@ -45,13 +45,17 @@ const months = [
 //   window.matchMedia("(prefers-color-scheme: light)").matches
 // ) {
 //   body.classList.add("light-mode");
-//   dark.style.display = "none";
-//   light.style.display = "flex";
+//   light.style.display = "none";
+//   dark.style.display = "flex";
 // } else {
 //   body.classList.add("dark-mode");
 //   dark.style.display = "none";
 //   light.style.display = "flex";
 // }
+
+body.classList.add("dark-mode");
+dark.style.display = "none";
+light.style.display = "flex";
 
 const searchForUser = async (usernameInput) => {
   try {
@@ -134,17 +138,6 @@ searchForm.addEventListener("submit", (event) => {
   const searchInput = searchBar.value.trim();
   searchForUser(searchInput);
 });
-
-if (
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-) {
-  light.style.display = "flex";
-  dark.style.display = "none";
-} else {
-  light.style.display = "none";
-  dark.style.display = "flex";
-}
 
 toggleButton.addEventListener("click", () => {
   if (body.classList.contains("dark-mode")) {
