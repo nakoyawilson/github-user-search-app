@@ -38,6 +38,21 @@ const months = [
   "Dec",
 ];
 
+// Set initial color theme
+
+if (
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: light)").matches
+) {
+  body.classList.add("light-mode");
+  dark.style.display = "none";
+  light.style.display = "flex";
+} else {
+  body.classList.add("dark-mode");
+  dark.style.display = "none";
+  light.style.display = "flex";
+}
+
 const searchForUser = async (usernameInput) => {
   try {
     const response = await axios.get(
@@ -99,10 +114,16 @@ const searchForUser = async (usernameInput) => {
     errorMessage.style.opacity = "0";
     searchInput.removeAttribute("aria-invalid");
     searchInput.removeAttribute("aria-describedBy");
+    if (window.innerWidth < 800) {
+      searchInput.setAttribute("placeholder", "Search GitHub username...");
+    }
   } catch (err) {
     errorMessage.style.opacity = "1";
     searchInput.setAttribute("aria-invalid", "true");
     searchInput.setAttribute("aria-describedBy", "error-message");
+    if (window.innerWidth < 800) {
+      searchInput.setAttribute("placeholder", "");
+    }
   }
 };
 
@@ -126,23 +147,21 @@ if (
 }
 
 toggleButton.addEventListener("click", () => {
-  if (
-    (window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-    body.classList.contains("dark-mode")
-  ) {
+  if (body.classList.contains("dark-mode")) {
     body.classList.remove("dark-mode");
     body.classList.add("light-mode");
     light.style.display = "none";
     dark.style.display = "flex";
-  } else if (
-    (window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches) ||
-    body.classList.contains("light-mode")
-  ) {
+  } else if (body.classList.contains("light-mode")) {
+    console.log(body.classList);
     body.classList.remove("light-mode");
     body.classList.add("dark-mode");
-    light.style.display = "flex";
     dark.style.display = "none";
+    light.style.display = "flex";
   }
+});
+
+searchInput.addEventListener("focus", () => {
+  searchInput.setAttribute("placeholder", "Search GitHub username...");
+  errorMessage.style.opacity = "0";
 });
