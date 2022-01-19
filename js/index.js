@@ -115,7 +115,7 @@ const searchForUser = async (usernameInput) => {
     searchInput.removeAttribute("aria-invalid");
     searchInput.removeAttribute("aria-describedBy");
     if (window.innerWidth < 800) {
-      searchInput.setAttribute("placeholder", "Search GitHub username...");
+      searchInput.setAttribute("placeholder", "Search GitHub username\u2026");
     }
   } catch (err) {
     errorMessage.style.opacity = "1";
@@ -151,6 +151,6 @@ toggleButton.addEventListener("click", () => {
 });
 
 searchInput.addEventListener("focus", () => {
-  searchInput.setAttribute("placeholder", "Search GitHub username...");
+  searchInput.setAttribute("placeholder", "Search GitHub username\u2026");
   errorMessage.style.opacity = "0";
 });
