@@ -236,6 +236,10 @@ a:hover {
   font-size: 1rem;
 }
 
+.joined-container {
+  margin-top: 0.5rem;
+}
+
 .bio-container {
   padding: 1.25rem 0 2rem;
   line-height: 1.67;
@@ -469,6 +473,10 @@ body.light-mode {
     flex-direction: column;
     justify-content: flex-start;
     gap: 0.25rem;
+  }
+
+  .joined-container {
+    margin-top: 0;
   }
 
   .bio-container {
