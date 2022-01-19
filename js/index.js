@@ -38,24 +38,20 @@ const months = [
   "Dec",
 ];
 
-// // Set initial color theme
+// Set initial color theme
 
-// if (
-//   window.matchMedia &&
-//   window.matchMedia("(prefers-color-scheme: light)").matches
-// ) {
-//   body.classList.add("light-mode");
-//   light.style.display = "none";
-//   dark.style.display = "flex";
-// } else {
-//   body.classList.add("dark-mode");
-//   dark.style.display = "none";
-//   light.style.display = "flex";
-// }
-
-body.classList.add("dark-mode");
-dark.style.display = "none";
-light.style.display = "flex";
+if (
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: light)").matches
+) {
+  body.classList.add("light-mode");
+  light.style.display = "none";
+  dark.style.display = "flex";
+} else {
+  body.classList.add("dark-mode");
+  dark.style.display = "none";
+  light.style.display = "flex";
+}
 
 const searchForUser = async (usernameInput) => {
   try {
