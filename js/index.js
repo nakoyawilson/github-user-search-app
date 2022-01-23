@@ -89,7 +89,7 @@ const searchForUser = async (usernameInput) => {
 
     website.innerHTML =
       response.data.blog !== null && response.data.blog !== ""
-        ? `<a href="${response.data.blog}">${url}</a>`
+        ? `<a href="${response.data.blog}" target="_blank">${url}</a>`
         : "Not Available";
     website.style.opacity =
       response.data.blog !== null && response.data.blog !== "" ? "1" : "0.5";
@@ -98,7 +98,7 @@ const searchForUser = async (usernameInput) => {
 
     twitter.innerHTML =
       response.data.twitter_username !== null
-        ? `<a href="https://twitter.com/${response.data.twitter_username}">@${response.data.twitter_username}</a>`
+        ? `<a href="https://twitter.com/${response.data.twitter_username}" target="_blank">@${response.data.twitter_username}</a>`
         : "Not Available";
     twitter.style.opacity =
       response.data.twitter_username !== null ? "1" : "0.5";
