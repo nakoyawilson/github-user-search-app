@@ -69,7 +69,7 @@ const searchForUser = async (usernameInput) => {
     avatar.src = response.data.avatar_url;
     fullname.textContent =
       response.data.name !== null ? response.data.name : response.data.login;
-    username.textContent = response.data.login;
+    username.innerHTML = `<a href="${response.data.html_url}" target="_blank">${response.data.login}</a>`;
     joinDate.textContent = `${day} ${month} ${year}`;
     bio.textContent =
       response.data.bio !== null
