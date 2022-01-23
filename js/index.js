@@ -62,10 +62,14 @@ const searchForUser = async (usernameInput) => {
     const month = months[unformattedDate.getMonth()];
     const year = unformattedDate.getFullYear();
 
-    const url =
+    const url_text =
       response.data.blog.length <= 19
         ? response.data.blog
         : `${response.data.blog.slice(0, 16)}...`;
+    const url_regex = /^(http)/i;
+    const url_href = response.data.blog.match(url_regex)
+      ? response.data.blog
+      : `//${response.data.blog}`;
     avatar.src = response.data.avatar_url;
     fullname.textContent =
       response.data.name !== null ? response.data.name : response.data.login;
@@ -89,7 +93,7 @@ const searchForUser = async (usernameInput) => {
 
     website.innerHTML =
       response.data.blog !== null && response.data.blog !== ""
-        ? `<a href="${response.data.blog}" target="_blank">${url}</a>`
+        ? `<a href="${url_href}" target="_blank">${url_text}</a>`
         : "Not Available";
     website.style.opacity =
       response.data.blog !== null && response.data.blog !== "" ? "1" : "0.5";
