@@ -70,6 +70,17 @@ const searchForUser = async (usernameInput) => {
     const url_href = response.data.blog.match(url_regex)
       ? response.data.blog
       : `//${response.data.blog}`;
+
+    const company_regex = /(^@\w+)/;
+    const companyContent =
+      response.data.company === null
+        ? "Not Available"
+        : response.data.company.match(company_regex)
+        ? `<a href="https://github.com/${response.data.company.substring(
+            1
+          )}" target="_blank">${response.data.company}</a>`
+        : response.data.company;
+
     avatar.src = response.data.avatar_url;
     fullname.textContent =
       response.data.name !== null ? response.data.name : response.data.login;
@@ -109,8 +120,8 @@ const searchForUser = async (usernameInput) => {
     twitterIcon.style.opacity =
       response.data.twitter_username !== null ? "1" : "0.5";
 
-    company.textContent =
-      response.data.company !== null ? response.data.company : "Not Available";
+    company.innerHTML =
+      response.data.company !== null ? companyContent : "Not Available";
     company.style.opacity = response.data.company !== null ? "1" : "0.5";
     companyIcon.style.opacity = response.data.company !== null ? "1" : "0.5";
 
